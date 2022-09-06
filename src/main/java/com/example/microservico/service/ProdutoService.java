@@ -16,4 +16,17 @@ public class ProdutoService {
     public List<Produto> listaTodos(){
         return (List<Produto>) repository.findAll();
     }
+
+    public Produto salvar(Produto produto){
+        return repository.save(produto);
+    }
+
+    public Produto buscaPorId(String sku) {
+        Produto produto = repository.findById(sku).get();
+
+        if (produto == null) {
+            return null;
+        }
+        return produto;
+    }
 }
